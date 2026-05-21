@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khúc Mía Nấu Thành Cơm - Trò Chơi Trại Hè</title>
+    <meta name="description" content="Trò chơi mô phỏng Khúc Mía Nấu Thành Cơm cho Trại Hè Giáo Lý">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== PARTICLES BACKGROUND ===== -->
+    <div class="particles" id="particles"></div>
+
+    <!-- ===== LANDING SCREEN ===== -->
+    <div class="screen active" id="screen-landing">
+        <div class="landing-content">
+            <div class="game-badge">🎋 TRÒ CHƠI SỐ 4</div>
+            <h1 class="game-title">
+                <span class="title-line">Khúc Mía</span>
+                <span class="title-line accent">Nấu Thành Cơm</span>
+            </h1>
+            <div class="subtitle-badge">TRẠI HÈ GIÁO LÝ 2026</div>
+            
+            <div class="team-info-card">
+                <div class="team-header">
+                    <div class="team-icon">👨‍💼</div>
+                    <div>
+                        <h3>Phụ Trách Chính</h3>
+                        <p class="leader-name">Anh Minh Khôi</p>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <h4 class="ctv-title">Cộng Tác Viên</h4>
+                <div class="ctv-grid">
+                    <div class="ctv-chip"><span class="ctv-avatar">👩</span> Chị Quỳnh Thư</div>
+                    <div class="ctv-chip"><span class="ctv-avatar">👩</span> Chị Thanh Nhi</div>
+                    <div class="ctv-chip"><span class="ctv-avatar">👩</span> Chị Bích Thuỳ</div>
+                    <div class="ctv-chip"><span class="ctv-avatar">👩</span> Chị Nguyệt Hà</div>
+                </div>
+            </div>
+
+            <button class="btn-primary btn-glow" onclick="showScreen('screen-rules')">
+                <span>Xem Luật Chơi</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== RULES SCREEN ===== -->
+    <div class="screen" id="screen-rules">
+        <div class="rules-content">
+            <button class="btn-back" onclick="showScreen('screen-landing')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Quay lại
+            </button>
+            <h2 class="section-title">📜 Luật Chơi</h2>
+
+            <div class="rules-grid">
+                <div class="rule-card" style="--delay: 0.1s">
+                    <div class="rule-icon">🏗️</div>
+                    <h3>Đạo Cụ</h3>
+                    <p><strong>9 ống nhựa trong suốt</strong>, mỗi ống chứa <strong>15 trái banh</strong>. Xung quanh có các <strong>thanh gỗ (đũa)</strong> xuyên qua các lỗ không trật tự, giữ banh bên trong.</p>
+                </div>
+                <div class="rule-card" style="--delay: 0.2s">
+                    <div class="rule-icon">🏆</div>
+                    <h3>Chiến Thắng</h3>
+                    <p>Đội nào có <strong>số banh còn lại trong ống nhiều nhất</strong> sẽ chiến thắng! Hãy cẩn thận khi rút thanh gỗ!</p>
+                </div>
+                <div class="rule-card" style="--delay: 0.3s">
+                    <div class="rule-icon">🎮</div>
+                    <h3>Cách Chơi</h3>
+                    <p>Từng thành viên di chuyển đến vị trí chỉ định → <strong>Xoay tại chỗ 5 vòng</strong> → Chạy đến ống → <strong>Rút 1 thanh gỗ</strong> → Chạy về trong <strong>10 giây</strong>.</p>
+                </div>
+                <div class="rule-card warning" style="--delay: 0.4s">
+                    <div class="rule-icon">⚠️</div>
+                    <h3>Lưu Ý Quan Trọng</h3>
+                    <p>Chỉ được rút <strong>1 thanh/1 lần</strong>. <strong>KHÔNG</strong> được thay đổi vị trí thanh gỗ từ lỗ này sang lỗ khác!</p>
+                </div>
+            </div>
+
+            <div class="flow-section">
+                <h3 class="flow-title">🔄 Quy Trình Chơi</h3>
+                <div class="flow-steps">
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">🏃</div>
+                        <p>Di chuyển đến<br>vị trí chỉ định</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">🌀</div>
+                        <p>Xoay tại chỗ<br><strong>5 vòng</strong></p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">🏃‍♂️</div>
+                        <p>Chạy đến<br>vị trí ống</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-icon">🪵</div>
+                        <p>Rút <strong>1</strong><br>thanh gỗ</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-number">5</div>
+                        <div class="step-icon">⏱️</div>
+                        <p>Chạy về trong<br><strong>10 giây</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-primary btn-glow" onclick="showScreen('screen-setup')">
+                <span>Bắt Đầu Trò Chơi</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== SETUP SCREEN ===== -->
+    <div class="screen" id="screen-setup">
+        <div class="setup-content">
+            <button class="btn-back" onclick="showScreen('screen-rules')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Quay lại
+            </button>
+            <h2 class="section-title">⚙️ Thiết Lập Trò Chơi</h2>
+            
+            <div class="setup-grid">
+                <div class="setup-card">
+                    <label class="setup-label">Số đội chơi</label>
+                    <div class="number-input">
+                        <button class="num-btn" onclick="adjustTeams(-1)">−</button>
+                        <span id="team-count">3</span>
+                        <button class="num-btn" onclick="adjustTeams(1)">+</button>
+                    </div>
+                </div>
+                <div class="setup-card">
+                    <label class="setup-label">Số ống mỗi đội</label>
+                    <div class="number-input">
+                        <button class="num-btn" onclick="adjustTubes(-1)">−</button>
+                        <span id="tube-count">3</span>
+                        <button class="num-btn" onclick="adjustTubes(1)">+</button>
+                    </div>
+                </div>
+                <div class="setup-card">
+                    <label class="setup-label">Thời gian (giây)</label>
+                    <div class="number-input">
+                        <button class="num-btn" onclick="adjustTime(-5)">−</button>
+                        <span id="time-limit">10</span>
+                        <button class="num-btn" onclick="adjustTime(5)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-names-section" id="team-names-section">
+                <!-- Generated dynamically -->
+            </div>
+
+            <button class="btn-primary btn-glow" onclick="startGame()">
+                <span>🎮 Bắt Đầu!</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== GAME SCREEN ===== -->
+    <div class="screen" id="screen-game">
+        <div class="game-top-bar">
+            <button class="btn-back" onclick="confirmExit()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Thoát
+            </button>
+            <div class="game-round-info">
+                <span id="round-label">Lượt 1</span>
+            </div>
+            <button class="btn-scoreboard" onclick="showScreen('screen-scoreboard')" title="Bảng điểm">
+                🏆
+            </button>
+        </div>
+
+        <!-- Team selector tabs -->
+        <div class="team-tabs" id="team-tabs">
+            <!-- Generated dynamically -->
+        </div>
+
+        <!-- Current team's tube area -->
+        <div class="game-area">
+            <div class="team-banner" id="current-team-banner">
+                <h2 id="current-team-name">Đội 1</h2>
+                <div class="ball-counter">
+                    <span class="ball-icon">🔴</span>
+                    <span id="ball-count">15</span>
+                    <span class="ball-label">banh còn lại</span>
+                </div>
+            </div>
+
+            <div class="tube-container" id="tube-container">
+                <!-- Tubes rendered here -->
+            </div>
+
+            <!-- Timer section -->
+            <div class="timer-section" id="timer-section">
+                <div class="timer-ring" id="timer-ring">
+                    <svg viewBox="0 0 120 120">
+                        <circle class="timer-bg" cx="60" cy="60" r="54"/>
+                        <circle class="timer-progress" id="timer-progress" cx="60" cy="60" r="54"/>
+                    </svg>
+                    <div class="timer-text" id="timer-text">10</div>
+                </div>
+                <div class="timer-controls">
+                    <button class="btn-timer btn-start" id="btn-start-timer" onclick="startTimer()">
+                        ▶ Bắt Đầu Đếm
+                    </button>
+                    <button class="btn-timer btn-reset" onclick="resetTimer()">
+                        ↻ Đặt Lại
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SCOREBOARD SCREEN ===== -->
+    <div class="screen" id="screen-scoreboard">
+        <div class="scoreboard-content">
+            <button class="btn-back" onclick="showScreen('screen-game')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Quay lại
+            </button>
+            <h2 class="section-title">🏆 Bảng Xếp Hạng</h2>
+            <div class="scoreboard-list" id="scoreboard-list">
+                <!-- Generated dynamically -->
+            </div>
+            <button class="btn-primary" onclick="showScreen('screen-game')" style="margin-top: 2rem;">
+                Quay lại trò chơi
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: Confirm stick pull ===== -->
+    <div class="modal-overlay" id="modal-pull" style="display:none;">
+        <div class="modal-card">
+            <div class="modal-icon">🪵</div>
+            <h3>Xác nhận rút thanh gỗ?</h3>
+            <p id="modal-stick-info">Thanh gỗ #1 - Ống #1</p>
+            <p class="modal-warning">⚠️ Banh có thể rơi xuống!</p>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeModal()">Huỷ</button>
+                <button class="btn-confirm" onclick="confirmPull()">Rút!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: Ball drop animation ===== -->
+    <div class="modal-overlay" id="modal-result" style="display:none;">
+        <div class="modal-card result-card">
+            <div class="result-icon" id="result-icon">😅</div>
+            <h3 id="result-title">Kết quả</h3>
+            <p id="result-text">2 banh đã rơi!</p>
+            <button class="btn-primary" onclick="closeResultModal()" style="margin-top: 1.5rem;">OK</button>
+        </div>
+    </div>
+
+    <!-- Sound effects (hidden) -->
+    <audio id="sfx-pull" preload="auto">
+        <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=" type="audio/wav">
+    </audio>
+    <audio id="sfx-drop" preload="auto">
+        <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=" type="audio/wav">
+    </audio>
+
+    <script src="game.js"></script>
+</body>
+</html>
