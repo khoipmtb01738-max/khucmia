@@ -46,6 +46,9 @@ export default function App() {
   const [demoTimer, setDemoTimer] = useState(10)
   const demoTimers = useRef([])
 
+  // ---- mobile nav ----
+  const [navOpen, setNavOpen] = useState(false)
+
   // pull a stick from a tube
   function pullStick(tubeId, stickId) {
     setTubes((prev) =>
@@ -122,6 +125,7 @@ export default function App() {
 
   // scroll to section
   function scrollTo(id) {
+    setNavOpen(false)
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
@@ -139,10 +143,18 @@ export default function App() {
               <div className="nav-sub">Trò chơi số {GAME_META.number} · {GAME_META.event}</div>
             </div>
           </div>
-          <nav className="nav-links">
+          <button
+            className="nav-toggle"
+            onClick={() => setNavOpen((o) => !o)}
+            aria-label="Mở/đóng menu"
+            aria-expanded={navOpen}
+          >
+            <Icon name={navOpen ? 'x' : 'menu'} size={24} />
+          </button>
+          <nav className={`nav-links ${navOpen ? 'nav-open' : ''}`}>
             {NAV_ITEMS.map((n) => (
               <button key={n.id} className="nav-btn" onClick={() => scrollTo(n.id)}>
-                <Icon name={n.icon} size={15} />
+                <Icon name={n.icon} size={16} />
                 <span>{n.label}</span>
               </button>
             ))}

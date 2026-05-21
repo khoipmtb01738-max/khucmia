@@ -1597,6 +1597,74 @@ h1, h2, h3, h4 {
 }
 
 /* ============ RESPONSIVE ============ */
+body {
+  overflow-x: clip;
+}
+
+/* nút menu mobile (ẩn trên desktop) */
+.nav-toggle {
+  display: none;
+  border: none;
+  background: var(--green);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: filter 0.15s, transform 0.08s;
+}
+
+.nav-toggle:active {
+  transform: scale(0.94);
+}
+
+@keyframes navdrop {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Tablet & mobile: menu thu gọn thành hamburger ---- */
+@media (max-width: 1024px) {
+  .nav-inner {
+    position: relative;
+    flex-wrap: nowrap;
+  }
+  .nav-toggle {
+    display: inline-flex;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 3px;
+    background: #fff;
+    padding: 10px;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
+    max-height: 76vh;
+    overflow-y: auto;
+  }
+  .nav-links.nav-open {
+    display: flex;
+    animation: navdrop 0.2s ease;
+  }
+  .nav-btn {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 13px 14px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+}
+
+/* ---- Layout xếp dọc trên màn hình hẹp ---- */
 @media (max-width: 960px) {
   .showcase {
     grid-template-columns: 1fr;
@@ -1609,35 +1677,160 @@ h1, h2, h3, h4 {
     font-size: 44px;
   }
   .steps-track {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
   .step-arrow {
     display: none;
   }
   .tubes-row {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   }
   .lead-card {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
+    gap: 14px;
   }
-  .nav-links {
-    width: 100%;
-    justify-content: center;
+  .section {
+    padding: 64px 20px;
   }
 }
 
-@media (max-width: 560px) {
+/* ---- Điện thoại ---- */
+@media (max-width: 680px) {
+  .nav-inner {
+    padding: 10px 16px;
+  }
+  .nav-title {
+    font-size: 17px;
+  }
+  .nav-sub {
+    font-size: 11px;
+  }
+
+  .section {
+    padding: 50px 16px;
+  }
+  .section-head {
+    margin-bottom: 30px;
+  }
+  .section-head h2 {
+    font-size: 24px;
+  }
+  .section-head p {
+    font-size: 14.5px;
+  }
+
+  .hero {
+    padding: 54px 18px 62px;
+  }
   .hero-title {
-    font-size: 34px;
+    font-size: 36px;
+  }
+  .hero-desc {
+    font-size: 15px;
+  }
+  .hero-cta {
+    flex-direction: column;
+  }
+  .hero-cta .btn {
+    width: 100%;
   }
   .hero-stats {
     grid-template-columns: repeat(2, 1fr);
   }
-  .section-head h2 {
-    font-size: 26px;
+
+  .ctv-grid,
+  .equip-grid {
+    grid-template-columns: 1fr 1fr;
   }
-  .section {
-    padding: 56px 18px;
+
+  .winner-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .demo-controls .btn {
+    width: 100%;
+  }
+
+  /* mô phỏng người chơi */
+  .playsim-field {
+    padding: 12px;
+  }
+  .playsim-controls .btn {
+    flex: 1;
+  }
+  .lane {
+    grid-template-columns: 96px 1fr;
+    gap: 8px;
+    padding: 8px;
+  }
+  .lane-track {
+    height: 90px;
+  }
+  .lane-team-name {
+    font-size: 11px;
+  }
+  .lane-pos-label {
+    font-size: 9px;
+  }
+  .char-emoji svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* thử rút thanh */
+  .tubes-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .sim-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sim-controls .btn {
+    width: 100%;
+  }
+  .sim-feedback {
+    justify-content: center;
+  }
+  .sim-leaderboard {
+    padding: 18px 16px;
+  }
+}
+
+/* ---- Điện thoại nhỏ ---- */
+@media (max-width: 430px) {
+  .nav-sub {
+    display: none;
+  }
+  .hero-title {
+    font-size: 30px;
+  }
+  .ctv-grid,
+  .equip-grid,
+  .steps-track {
+    grid-template-columns: 1fr;
+  }
+  .tubes-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-stats {
+    gap: 10px;
+  }
+  .lane {
+    grid-template-columns: 82px 1fr;
+  }
+  .lane-team-roster {
+    transform: scale(0.85);
+  }
+  .speed-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+  .playsim-status,
+  .playsim-event {
+    font-size: 14px;
   }
 }
